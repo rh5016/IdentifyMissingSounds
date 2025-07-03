@@ -9,6 +9,7 @@ from demucs.audio import convert_audio
 from pathlib import Path
 
 from demucs.apply import apply_model
+from genre_classifier import predict_genre
 
 #root mean square computation finds power signal
 def compute_rms(y):
@@ -52,6 +53,10 @@ def analyze_track(audio_path, out_dir="separated", threshold=0.01):
         else:
             "OK"
         print(f"{stem:<3}: RMS = {rms:.4f}. {status}")
+
+    print("\nRunning genre classification…")
+    genre = predict_genre(args.audio_path)
+    print(f"Genre: {genre}")
 
 if __name__ == "__main__":
     import argparse

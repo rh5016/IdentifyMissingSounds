@@ -4,3 +4,6 @@
 [submodule "vendor/genre-cnn"]
 	path = vendor/genre-cnn
 	url = https://github.com/crlandsc/Music-Genre-Classification-Using-Convolutional-Neural-Networks.git
+[submodule "src/demucs"]
+	path = src/demucs
+	url = https://github.com/facebookresearch/demucs.git
