@@ -51,7 +51,7 @@ def analyze_track(audio_path, out_dir="separated", threshold=0.01):
         if rms < threshold:
             status = "Consider adding {stem}" 
         else:
-            "OK"
+            status = "OK"
         print(f"{stem:<3}: RMS = {rms:.4f}. {status}")
 
     print("\nRunning genre classification…")
