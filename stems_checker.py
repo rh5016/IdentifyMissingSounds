@@ -22,9 +22,13 @@ def analyze_track(audio_path, out_dir="separated", threshold=0.01):
     model.eval()
 
     # load audio
-    wav, sr = torchaudio.load(audio_path)
-    wav = wav.cpu() #cpu check
-    wav = convert_audio(wav, sr, model.samplerate, model.audio_channels)
+    # wav, sr = torchaudio.load(audio_path)
+    # wav = wav.cpu() #cpu check
+    # wav = convert_audio(wav, sr, model.samplerate, model.audio_channels)
+
+    y, sr = librosa.load(audio_path, sr=model.samplerate, mono=True)
+    y = y.cpu()
+    wav = torch.from_numpy(y).unsqueeze(0)  # shape is (1, num_samples)
 
     # separate using pretrained
     with torch.no_grad():
