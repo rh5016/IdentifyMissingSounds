@@ -5,7 +5,5 @@ Then classifies genre using Convolutional Neural Network (With Regularization an
 
 
 To run indentification & classification:
-```javascript
-function test() {
-  console.log("python stems_checker.py /path/to/your/wav");
-}
+```
+python stems_checker.py /path/to/your/wav"
