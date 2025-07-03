@@ -5,7 +5,6 @@ cffi==1.17.1
 charset-normalizer==3.4.2
 cloudpickle==3.1.1
 decorator==5.2.1
--e git+https://github.com/facebookresearch/demucs.git@e976d93ecc3865e5757426930257e200846a520a#egg=demucs
 dora_search==0.1.12
 einops==0.8.1
 filelock==3.18.0
@@ -23,7 +22,7 @@ mpmath==1.3.0
 msgpack==1.1.1
 networkx==3.4.2
 numba==0.61.2
-numpy==2.2.6
+numpy<2
 omegaconf==2.3.0
 openunmix==1.3.0
 packaging==25.0
@@ -46,3 +45,5 @@ tqdm==4.67.1
 treetable==0.2.5
 typing_extensions==4.14.0
 urllib3==2.5.0
+
+-e git+https://github.com/facebookresearch/demucs.git@e976d93ecc3865e5757426930257e200846a520a#egg=demucs
