@@ -6,4 +6,4 @@ Then classifies genre using Convolutional Neural Network (With Regularization an
 
 To run indentification & classification:
 ```
-python stems_checker.py /path/to/your/wav"
+python stems_checker.py /path/to/your/wav
