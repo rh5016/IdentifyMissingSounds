@@ -26,13 +26,14 @@ def analyze_track(audio_path, out_dir="separated", threshold=0.01):
     # wav = wav.cpu() #cpu check
     # wav = convert_audio(wav, sr, model.samplerate, model.audio_channels)
 
-    y, sr = librosa.load(audio_path, sr=model.samplerate, mono=True)
-    wav = torch.from_numpy(y).unsqueeze(0)  # shape is (1, num_samples)
-    wav = wav.cpu()
+    waveform, sr = torchaudio.load(audio_path)  
 
-    # separate using pretrained
-    with torch.no_grad():
-        sources = apply_model(model, wav[None], split=True, overlap=0.25, progress=True)[0]
+    # if mono, duplicate the channel
+    if waveform.size(0) == 1:
+        waveform = waveform.repeat(2, 1)
+
+    # now waveform is (2, T); wrap in batch dim
+    sources = apply_model(model, waveform[None], split=True, overlap=0.25, progress=True)[0]
 
     stems = model.sources
     rms_results = {}
